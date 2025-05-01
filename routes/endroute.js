@@ -1,13 +1,8 @@
-//📄 endroute.js: Módulo de ruta para la página final.
 const express = require("express");
 const router = express.Router();
+const validarHora = require('../middlewares/validarHora.js');
 
-//Llegaremos a la ruta /endroute 
-// y el endroute.js tendrá el siguiente contenido: 
-    // Un texto dando la bienvenida 
-    // y la ruta donde estamos
-router.get('',(req, res) => {
-    // Send the response body
+router.get('/', validarHora, (req, res) => {
     res.send(`
         texto dando la bienvenida
         ruta donde estamos ${req.url}
